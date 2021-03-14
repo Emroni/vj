@@ -1,12 +1,12 @@
 import Stats from 'stats.js';
 import * as THREE from 'three';
-import * as socket from './socket';
+import socket from '../socket';
 
 const stats = new Stats();
 document.body.appendChild(stats.dom);
 
 const segments = new Array(3).fill(0);
-socket.onTick((data) => {
+socket.on('stream', (data) => {
     segments[0] = data.low;
     segments[1] = data.mid;
     segments[2] = data.high;
