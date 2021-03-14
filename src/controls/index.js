@@ -1,1 +1,1 @@
-import './segments';
+import './spectrum';

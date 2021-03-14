@@ -2,24 +2,9 @@ const portAudio = require('naudiodon');
 const socket = require('./socket');
 const {stream: log} = require('./log');
 
-// Prepare segments
-const low = {
-    max: 100,
-    min: 0,
-};
-const mid = {
-    max: 5000,
-    min: 500,
-};
-const high = {
-    max: 16384,
-    min: 10000,
-};
-
-// Get segments multipliers
-low.multiplier = 1 / ((low.max - low.min) * 256);
-mid.multiplier = 1 / ((mid.max - mid.min) * 256);
-high.multiplier = 1 / ((high.max - high.min) * 256);
+// Prepare spectrum
+const spectrum = new Array(100);
+const spectrumSegmentSize = Math.ceil(16384 / spectrum.length);
 
 // Create AudioIO
 const ai = new portAudio.AudioIO({
@@ -36,30 +21,20 @@ const ai = new portAudio.AudioIO({
 // Samples
 ai.on('data', (buffer) => {
     // Reset values
-    low.value = 0;
-    mid.value = 0;
-    high.value = 0;
+    spectrum.fill(0);
 
     // Add buffer values
     for (let i = 0; i < buffer.length; i++) {
-        const n = buffer[i];
-        if (i >= low.min && i < low.max) {
-            low.value += n;
-        }
-        if (i >= mid.min && i < mid.max) {
-            mid.value += n;
-        }
-        if (i >= high.min && i < high.max) {
-            high.value += n;
-        }
+        spectrum[Math.floor(i / spectrumSegmentSize)] += buffer[i] / spectrumSegmentSize;
     }
 
-    // Emit final values
-    socket.emit('stream', {
-        low: low.value * low.multiplier,
-        mid: mid.value * mid.multiplier,
-        high: high.value * high.multiplier,
-    });
+    // Round values
+    for (let i = 0; i < spectrum.length; i++) {
+        spectrum[i] = Math.round(spectrum[i]);
+    }
+
+    // Emit values
+    socket.emit('spectrum', spectrum);
 });
 
 // Run
