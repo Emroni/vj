@@ -1,1 +1,1 @@
-console.log('CONTROLS');
+import './segments';
