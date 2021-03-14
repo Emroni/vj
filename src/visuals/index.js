@@ -1,14 +1,12 @@
-import { io } from 'socket.io-client';
 import Stats from 'stats.js';
 import * as THREE from 'three';
+import * as socket from './socket';
 
 const stats = new Stats();
 document.body.appendChild(stats.dom);
 
-const socket = io('http://localhost:3001');
 const segments = new Array(3).fill(0);
-
-socket.on('stream', (data) => {
+socket.onTick((data) => {
     segments[0] = data.low;
     segments[1] = data.mid;
     segments[2] = data.high;
