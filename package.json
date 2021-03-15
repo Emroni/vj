@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "audio-analyser": "^1.0.2",
     "autoprefixer": "^10.2.5",
     "css-loader": "^5.1.2",
     "express": "^4.17.1",
