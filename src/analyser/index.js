@@ -5,10 +5,10 @@ const {stream: log} = require('./log');
 
 // Create Analyser
 const analyser = new Analyser({
+    bufferSize: 44100,
+    channel: 1,
     fftSize: 256,
     frequencyBinCount: 256 / 2,
-    channel: 1,
-    bufferSize: 44100,
 });
 
 // Create AudioIO
@@ -19,7 +19,7 @@ const ai = new AudioIO({
         deviceId: -1,
         maxQueue: 1,
         sampleFormat: 32,
-        sampleRate: 44100,
+        sampleRate: analyser.bufferSize,
     },
 });
 
