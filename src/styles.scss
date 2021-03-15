@@ -7,20 +7,20 @@ body {
     @apply text-white;
 }
 
-canvas {
-    @apply bg-black;
-    @apply border;
-    @apply border-gray-700;
-}
-
-h1 {
-    @apply mb-2;
-    @apply text-xl;
-}
-
 section {
     @apply bg-gray-900;
     @apply m-1;
     @apply px-4;
     @apply py-2;
+
+    canvas {
+        @apply bg-black;
+        @apply border;
+        @apply border-gray-700;
+    }
+
+    h1 {
+        @apply mb-2;
+        @apply text-xl;
+    }
 }
