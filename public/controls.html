@@ -8,37 +8,63 @@
     </head>
     <body>
         <div class="flex">
-            <div class="flex-1">
-                <section>
-                    <h1>Spectrum</h1>
-                    <canvas class="w-full" id="spectrum"></canvas>
-                </section>
-                <section>
-                    <h1>Control</h1>
-                </section>
-            </div>
-            <div class="flex-1">
-                <section>
-                    <h1>Control</h1>
-                </section>
-                <section>
-                    <h1>Control</h1>
-                </section>
-                <section>
-                    <h1>Control</h1>
-                </section>
-            </div>
-            <div class="flex-1">
-                <section>
-                    <h1>Control</h1>
-                </section>
-                <section>
-                    <h1>Control</h1>
-                </section>
-                <section>
-                    <h1>Control</h1>
-                </section>
-            </div>
+            <section class="flex-1">
+                <h1>Spectrum</h1>
+                <canvas class="w-full" id="spectrum"></canvas>
+            </section>
+            <section class="flex flex-2 flex-col">
+                <h1>Bands</h1>
+                <div class="flex-grow">
+                    <table class="h-full">
+                        <thead>
+                            <tr>
+                                <td></td>
+                                <td>Low</td>
+                                <td>Mid</td>
+                                <td>High</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Min</td>
+                                <td>
+                                    <input id="bands-low-min" max="16" min="0" step="1" type="range">
+                                </td>
+                                <td>
+                                    <input id="bands-mid-min" max="16" min="0" step="1" type="range">
+                                </td>
+                                <td>
+                                    <input id="bands-high-min" max="16" min="0" step="1" type="range">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Max</td>
+                                <td>
+                                    <input id="bands-low-max" max="16" min="0" step="1" type="range">
+                                </td>
+                                <td>
+                                    <input id="bands-mid-max" max="16" min="0" step="1" type="range">
+                                </td>
+                                <td>
+                                    <input id="bands-high-max" max="16" min="0" step="1" type="range">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Multiply</td>
+                                <td>
+                                    <input id="bands-low-multiply" max="5" min="-5" step="0.1" type="range">
+                                </td>
+                                <td>
+                                    <input id="bands-mid-multiply" max="5" min="-5" step="0.1" type="range">
+                                </td>
+                                <td>
+                                    <input id="bands-high-multiply" max="5" min="-5" step="0.1" type="range">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
         </div>
         <script src="/build/controls.js"></script>
         <script src="http://localhost:35729/livereload.js"></script>

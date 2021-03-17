@@ -23,4 +23,21 @@ section {
         @apply mb-2;
         @apply text-xl;
     }
+
+    input {
+        @apply bg-black;
+        @apply border;
+        @apply border-gray-700;
+        @apply px-2;
+        @apply py-1;
+    }
+
+    table {
+        @apply w-full;
+    }
+
+    th, td {
+        @apply p-1;
+        @apply text-left;
+    }
 }

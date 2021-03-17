@@ -1,4 +1,4 @@
-import socket from '../socket';
+import socket from '../../socket';
 
 const canvas = document.getElementById('spectrum');
 const ctx = canvas.getContext('2d');

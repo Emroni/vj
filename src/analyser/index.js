@@ -2,6 +2,7 @@ const Analyser = require('audio-analyser');
 const { AudioIO } = require('naudiodon');
 const {log} = require('./log');
 const stream = require('./stream');
+require('./controls');
 
 // Create Analyser
 const analyser = new Analyser({

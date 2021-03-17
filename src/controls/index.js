@@ -1,1 +1,2 @@
-import './spectrum';
+import './sections/bands';
+import './sections/spectrum';
