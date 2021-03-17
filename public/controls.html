@@ -7,14 +7,14 @@
         <link href="/build/styles.css" rel="stylesheet"/>
     </head>
     <body>
-        <div class="flex">
-            <section class="flex-1">
+        <div class="lg:flex">
+            <section class="flex flex-1 flex-col">
                 <h1>Spectrum</h1>
-                <div class="overflow-hidden relative">
+                <div class="flex-1 overflow-hidden relative">
                     <div class="absolute bg-red-500 bg-opacity-30 bottom-0 top-0" id="spectrum-band-low"></div>
                     <div class="absolute bg-green-500 bg-opacity-30 bottom-0 top-0" id="spectrum-band-mid"></div>
                     <div class="absolute bg-blue-500 bg-opacity-30 bottom-0 top-0" id="spectrum-band-high"></div>
-                    <canvas class="w-full" id="spectrum"></canvas>
+                    <canvas class="h-48 w-full" id="spectrum"></canvas>
                 </div>
             </section>
             <section class="flex flex-2 flex-col">
