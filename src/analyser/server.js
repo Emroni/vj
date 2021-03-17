@@ -1,13 +1,13 @@
 const app = require('express')();
 const http = require('http');
-const {socket: log} = require('./log');
+const {server: log} = require('./log');
 
 // Run server
 const httpServer = http.Server(app);
 httpServer.listen(3001, () => log('[Ready]'));
 
 // Run socket.io
-const io = require('socket.io')(httpServer, {
+const io = module.exports = require('socket.io')(httpServer, {
     cors: {
         origin: '*',
         methods: [
@@ -18,11 +18,6 @@ const io = require('socket.io')(httpServer, {
 
 // On each socket connection
 io.on('connect', (socket) => {
-    log('[Connected]');
-    socket.on('disconnect', () => log('{Disconnected}'));
+    log('[Client connected]');
+    socket.on('disconnect', () => log('{Client disconnected}'));
 });
-
-// Emit to all sockets
-module.exports.emit = (type, data) => {
-    io.emit(type, data);
-};

@@ -1,4 +1,4 @@
-const socket = require('./socket');
+const server = require('./server');
 
 const data = {
     spectrum: new Array(16),
@@ -25,5 +25,5 @@ module.exports.update = function (frequencyData) {
     }
 
     // Emit values
-    socket.emit('stream', data);
+    server.emit('stream', data);
 }
