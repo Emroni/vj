@@ -17,9 +17,9 @@ inputs.forEach(input => {
     input.addEventListener('change', handleChange);
 });
 
-socket.on('controls', (data) => {
+socket.on('controls', (controls) => {
     inputs.forEach(input => {
-        const value = data.bands[input.band][input.type];
+        const value = controls.bands[input.band][input.type];
         input.set(value);
     });
 });
