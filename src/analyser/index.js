@@ -26,7 +26,6 @@ const ai = new AudioIO({
 
 // Prepare data
 const frequencyData = new Uint8Array(analyser.frequencyBinCount);
-stream.init(analyser);
 
 // On update
 ai.on('data', () => {

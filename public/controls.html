@@ -10,11 +10,11 @@
         <div class="lg:flex">
             <section class="flex flex-1 flex-col">
                 <h1>Spectrum</h1>
-                <div class="flex-1 overflow-hidden relative">
-                    <div class="absolute bg-red-500 bg-opacity-30 bottom-0 top-0" id="spectrum-band-low"></div>
-                    <div class="absolute bg-green-500 bg-opacity-30 bottom-0 top-0" id="spectrum-band-mid"></div>
-                    <div class="absolute bg-blue-500 bg-opacity-30 bottom-0 top-0" id="spectrum-band-high"></div>
-                    <canvas class="h-48 w-full" id="spectrum"></canvas>
+                <div class="bg-black flex-1 overflow-hidden relative">
+                    <div class="absolute bg-opacity-30 bg-red-500 bottom-0 top-0" id="spectrum-band-low"></div>
+                    <div class="absolute bg-opacity-30 bg-green-500 bottom-0 top-0" id="spectrum-band-mid"></div>
+                    <div class="absolute bg-opacity-30 bg-blue-500 bottom-0 top-0" id="spectrum-band-high"></div>
+                    <canvas class="h-48 relative w-full z-10" id="spectrum"></canvas>
                 </div>
             </section>
             <section class="flex flex-2 flex-col">
@@ -57,13 +57,13 @@
                             <tr>
                                 <td>Multiply</td>
                                 <td>
-                                    <input id="bands-low-multiply" max="5" min="-5" step="0.1" type="range">
+                                    <input id="bands-low-multiply" max="2" min="0" step="0.1" type="range">
                                 </td>
                                 <td>
-                                    <input id="bands-mid-multiply" max="5" min="-5" step="0.1" type="range">
+                                    <input id="bands-mid-multiply" max="2" min="0" step="0.1" type="range">
                                 </td>
                                 <td>
-                                    <input id="bands-high-multiply" max="5" min="-5" step="0.1" type="range">
+                                    <input id="bands-high-multiply" max="2" min="0" step="0.1" type="range">
                                 </td>
                             </tr>
                         </tbody>

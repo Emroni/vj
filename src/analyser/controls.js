@@ -1,7 +1,7 @@
 const merge = require('deepmerge');
 const server = require('./server');
 
-const data = {
+const data = module.exports = {
     bands: {
         low: {
             max: 1,
