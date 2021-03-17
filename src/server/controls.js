@@ -1,5 +1,5 @@
 const merge = require('deepmerge');
-const server = require('./server');
+const io = require('./io');
 
 const data = module.exports = {
     bands: {
@@ -21,12 +21,12 @@ const data = module.exports = {
     },
 };
 
-server.on('connect', (socket) => {
+io.on('connect', (socket) => {
     socket.emit('controls', data);
 
     socket.on('controls', (controls) => {
         updateBands(controls.bands);
-        server.emit('controls', data);
+        io.emit('controls', data);
     });
 });
 

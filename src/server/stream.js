@@ -1,5 +1,5 @@
 const controls = require('./controls');
-const server = require('./server');
+const io = require('./io');
 
 const data = {
     bands: {
@@ -42,5 +42,5 @@ module.exports.update = function (frequencyData) {
     data.bands.high = Math.round(data.bands.high / (controls.bands.high.max - controls.bands.high.min) * controls.bands.high.multiply);
 
     // Emit values
-    server.emit('stream', data);
+    io.emit('stream', data);
 }

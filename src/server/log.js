@@ -3,7 +3,7 @@ console.clear();
 // Export log method for each module
 module.exports = {
     log,
-    server: (message) => log('(SERVER) ' + message),
+    io: (message) => log('(IO) ' + message),
     stream: (message) => log('(STREAM) ' + message),
 };
 

@@ -1,6 +1,6 @@
 const app = require('express')();
 const http = require('http');
-const {server: log} = require('./log');
+const {io: log} = require('./log');
 
 // Run server
 const httpServer = http.Server(app);
